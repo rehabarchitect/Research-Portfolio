@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Portfolio — Prawit Prakosre</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #0d1b2a;
+    --blue:   #1a4a7a;
+    --steel:  #2e7dbf;
+    --teal:   #0ea5a0;
+    --gold:   #c9a84c;
+    --cream:  #f5f0e8;
+    --smoke:  #e8edf3;
+    --text:   #1c2b3a;
+    --muted:  #5a6e80;
+    --white:  #ffffff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── GRAIN OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: .5;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: relative; z-index: 10;
+    padding: 3.5rem 4rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .header-left {}
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem; letter-spacing: .18em;
+    color: var(--teal); text-transform: uppercase;
+    margin-bottom: .6rem;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.1; font-weight: 700;
+    color: var(--cream);
+  }
+  h1 span { color: var(--gold); font-style: italic; }
+  .subtitle {
+    margin-top: .5rem;
+    font-size: .88rem; color: var(--muted);
+    letter-spacing: .04em;
+  }
+
+  .header-right {
+    display: flex; flex-direction: column; align-items: flex-end; gap: .5rem;
+  }
+  .badge-row { display: flex; gap: .5rem; flex-wrap: wrap; justify-content: flex-end; }
+  .badge {
+    font-family: 'DM Mono', monospace; font-size: .65rem;
+    padding: .3rem .75rem; border-radius: 2rem;
+    border: 1px solid rgba(255,255,255,.15);
+    color: var(--muted); letter-spacing: .08em;
+  }
+  .badge.active { border-color: var(--teal); color: var(--teal); }
+
+  .site-link {
+    display: inline-flex; align-items: center; gap: .4rem;
+    font-size: .78rem; color: var(--steel);
+    text-decoration: none; transition: color .2s;
+    font-family: 'DM Mono', monospace;
+  }
+  .site-link:hover { color: var(--teal); }
+  .site-link svg { width: 12px; height: 12px; }
+
+  /* ── TIMELINE TRACK ── */
+  .timeline-section {
+    position: relative; z-index: 10;
+    padding: 0 4rem;
+    margin-top: 3rem;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem; letter-spacing: .2em;
+    color: var(--muted); text-transform: uppercase;
+    margin-bottom: 2rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .section-label::after {
+    content: ''; flex: 1;
+    height: 1px; background: rgba(255,255,255,.07);
+  }
+
+  .timeline {
+    position: relative;
+    display: flex; flex-direction: column; gap: 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 11px; top: 0; bottom: 0;
+    width: 1px; background: linear-gradient(to bottom, var(--teal), rgba(46,125,191,.2), transparent);
+  }
+
+  /* ── CARDS ── */
+  .card {
+    position: relative;
+    margin-left: 2.5rem;
+    margin-bottom: 2rem;
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 12px;
+    padding: 1.8rem 2rem;
+    cursor: pointer;
+    transition: border-color .3s, background .3s, transform .2s;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute; left: -2.5rem; top: 1.8rem;
+    width: 23px; height: 23px; border-radius: 50%;
+    border: 2px solid var(--teal);
+    background: var(--navy);
+    transition: background .3s;
+  }
+  .card:hover { border-color: rgba(14,165,160,.35); background: rgba(14,165,160,.05); transform: translateX(4px); }
+  .card:hover::before { background: var(--teal); }
+
+  /* card accent bar */
+  .card::after {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--teal), transparent);
+    opacity: 0; transition: opacity .3s;
+  }
+  .card:hover::after { opacity: 1; }
+
+  /* dot color variants */
+  .card.gold::before  { border-color: var(--gold); }
+  .card.gold:hover::before { background: var(--gold); }
+  .card.gold:hover { border-color: rgba(201,168,76,.35); background: rgba(201,168,76,.04); }
+  .card.gold::after { background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+
+  .card.blue::before  { border-color: var(--steel); }
+  .card.blue:hover::before { background: var(--steel); }
+  .card.blue:hover { border-color: rgba(46,125,191,.35); background: rgba(46,125,191,.04); }
+  .card.blue::after { background: linear-gradient(90deg, transparent, var(--steel), transparent); }
+
+  .card-meta {
+    display: flex; align-items: center; gap: .6rem; flex-wrap: wrap;
+    margin-bottom: .8rem;
+  }
+  .year-chip {
+    font-family: 'DM Mono', monospace; font-size: .65rem;
+    padding: .2rem .6rem; border-radius: 2rem;
+    background: rgba(255,255,255,.07); color: var(--muted);
+    letter-spacing: .08em;
+  }
+  .type-chip {
+    font-size: .65rem; padding: .2rem .65rem; border-radius: 2rem;
+    font-weight: 500; letter-spacing: .06em;
+  }
+  .type-chip.thesis   { background: rgba(201,168,76,.15); color: var(--gold); }
+  .type-chip.clinical { background: rgba(14,165,160,.12); color: var(--teal); }
+  .type-chip.original { background: rgba(46,125,191,.12); color: var(--steel); }
+  .type-chip.innov    { background: rgba(201,168,76,.12); color: var(--gold); }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; line-height: 1.35;
+    color: var(--cream); margin-bottom: .5rem;
+  }
+  .card-en {
+    font-size: .78rem; color: var(--muted); line-height: 1.4;
+    margin-bottom: 1rem; font-style: italic;
+  }
+
+  /* expandable detail */
+  .card-detail {
+    max-height: 0; overflow: hidden;
+    transition: max-height .5s cubic-bezier(.4,0,.2,1), padding .3s;
+  }
+  .card.open .card-detail { max-height: 600px; }
+
+  .card-detail-inner {
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding-top: 1.2rem; margin-top: .2rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+  @media(max-width:680px){ .card-detail-inner { grid-template-columns: 1fr; } }
+
+  .detail-block h4 {
+    font-family: 'DM Mono', monospace; font-size: .62rem;
+    letter-spacing: .15em; color: var(--teal); text-transform: uppercase;
+    margin-bottom: .5rem;
+  }
+  .detail-block p, .detail-block li {
+    font-size: .8rem; color: rgba(255,255,255,.6); line-height: 1.65;
+  }
+  .detail-block ul { padding-left: 1rem; }
+  .detail-block li { margin-bottom: .2rem; }
+
+  .stat-row {
+    display: flex; gap: 1.5rem; margin-top: 1rem; flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; color: var(--gold); font-weight: 700;
+  }
+  .stat-lbl {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem; letter-spacing: .1em;
+    color: var(--muted); text-transform: uppercase;
+  }
+
+  .expand-hint {
+    display: flex; align-items: center; gap: .4rem;
+    font-size: .72rem; color: var(--muted);
+    margin-top: .6rem;
+    font-family: 'DM Mono', monospace;
+  }
+  .expand-hint .arrow {
+    transition: transform .3s;
+    display: inline-block;
+  }
+  .card.open .expand-hint .arrow { transform: rotate(90deg); }
+
+  /* ── INNOVATION SECTION ── */
+  .innovation-section {
+    position: relative; z-index: 10;
+    padding: 0 4rem 2rem;
+  }
+
+  .innovation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .innov-card {
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 12px; padding: 1.5rem;
+    transition: border-color .3s, transform .2s;
+    cursor: default;
+  }
+  .innov-card:hover { border-color: rgba(201,168,76,.3); transform: translateY(-3px); }
+
+  .innov-icon {
+    font-size: 1.8rem; margin-bottom: .8rem;
+  }
+  .innov-name {
+    font-family: 'Playfair Display', serif;
+    font-size: .95rem; color: var(--cream); margin-bottom: .3rem;
+  }
+  .innov-desc {
+    font-size: .77rem; color: var(--muted); line-height: 1.6;
+  }
+  .innov-tag {
+    display: inline-block; margin-top: .7rem;
+    font-family: 'DM Mono', monospace; font-size: .6rem;
+    padding: .2rem .55rem; border-radius: 2rem;
+    border: 1px solid rgba(201,168,76,.3); color: var(--gold);
+    letter-spacing: .07em;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative; z-index: 10;
+    padding: 2rem 4rem 3rem;
+    border-top: 1px solid rgba(255,255,255,.06);
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+    margin-top: 2rem;
+  }
+  footer p { font-size: .75rem; color: var(--muted); }
+  footer a {
+    color: var(--teal); text-decoration: none;
+    font-family: 'DM Mono', monospace; font-size: .72rem;
+    transition: color .2s;
+  }
+  footer a:hover { color: var(--white); }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:700px){
+    header, .timeline-section, .innovation-section, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .card { padding: 1.3rem 1.2rem; }
+  }
+
+  /* ── SCROLL FADE IN ── */
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .6s, transform .6s; }
+  .fade-in.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-left">
+    <p class="eyebrow">Research Portfolio &amp; Academic Work</p>
+    <h1>Prawit <span>Prakosre</span></h1>
+    <p class="subtitle">M.Sc. PT · ใบอนุญาตประกอบวิชาชีพ ก.9573 · Thai Red Cross Rehabilitation Center</p>
+  </div>
+  <div class="header-right">
+    <div class="badge-row">
+      <span class="badge active">Neurological Rehab</span>
+      <span class="badge active">Cardiopulmonary</span>
+      <span class="badge">Robotics</span>
+      <span class="badge">Geriatric PT</span>
+    </div>
+    <a class="site-link" href="https://rehabarchitect.github.io/rehabarchitect.com/" target="_blank">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1v-3M9 1h6m0 0v6m0-6L7 9"/></svg>
+      rehabarchitect.github.io
+    </a>
+  </div>
+</header>
+
+<!-- RESEARCH TIMELINE -->
+<section class="timeline-section">
+  <p class="section-label">ผลงานวิจัยตามลำดับเวลา</p>
+  <div class="timeline">
+
+    <!-- CARD 1: BSc Thesis -->
+    <div class="card gold fade-in" onclick="toggle(this)">
+      <div class="card-meta">
+        <span class="year-chip">2562–2563</span>
+        <span class="type-chip thesis">ปริญญาตรี · Thesis</span>
+      </div>
+      <h3 class="card-title">ผลของระยะพักระหว่างชุดการออกกำลังกายแบบมีแรงต้านต่อภาวะความดันโลหิตต่ำภายหลังการออกกำลังกาย</h3>
+      <p class="card-en">Effects of Rest Interval Duration on Post-Exercise Hypotension Following Resistance Exercise — Crossover Study in Healthy Males</p>
+      <div class="expand-hint"><span class="arrow">▶</span> ดูรายละเอียดงานวิจัย</div>
+      <div class="card-detail">
+        <div class="card-detail-inner">
+          <div class="detail-block">
+            <h4>วัตถุประสงค์</h4>
+            <p>เปรียบเทียบผลของระยะพักระหว่างชุดการออกกำลังกายแบบมีแรงต้าน (2 นาที vs 3 นาที) ต่อภาวะ Post-Exercise Hypotension (PEH) ในอาสาสมัครเพศชายสุขภาพดี</p>
+            <h4 style="margin-top:1rem">การออกแบบงานวิจัย</h4>
+            <ul>
+              <li>Crossover Design (n=29, อายุเฉลี่ย 20.5 ปี)</li>
+              <li>Leg extension, 12RM × 10 reps × 10 sets</li>
+              <li>R2 vs R3 (Rest Interval 2 vs 3 min)</li>
+              <li>วัด SBP, DBP, MAP, HR ทุก 15 นาที นาน 60 นาที</li>
+              <li>วิเคราะห์ด้วย 2-way ANOVA + Tukey post-hoc</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h4>ผลลัพธ์สำคัญ</h4>
+            <ul>
+              <li>R2 พบ PEH ที่ SBP ลดลง ~6 mmHg ที่นาที 15 (p=0.001)</li>
+              <li>R2 พบ DBP ลดลง ~5 mmHg ที่นาที 45 (p=0.004)</li>
+              <li>R2 พบ MAP ลดลง ~3% ที่นาที 15 (p=0.001)</li>
+              <li>R2 พบ HR ลดลง ~7% ที่นาที 15 (p=0.001)</li>
+              <li><strong>R3 ไม่พบ PEH อย่างมีนัยสำคัญ</strong></li>
+            </ul>
+            <div class="stat-row">
+              <div class="stat"><div class="stat-val">29</div><div class="stat-lbl">Subjects</div></div>
+              <div class="stat"><div class="stat-val">6</div><div class="stat-lbl">mmHg ↓ SBP</div></div>
+              <div class="stat"><div class="stat-val">R2</div><div class="stat-lbl">Optimal RI</div></div>
+            </div>
+          </div>
+          <div class="detail-block" style="grid-column:1/-1">
+            <h4>ข้อสรุปทางคลินิก</h4>
+            <p>ระยะพักระหว่างชุดการออกกำลังกาย 2 นาที เหมาะสมกว่าสำหรับกระตุ้น PEH ซึ่งมีนัยสำคัญทางคลินิกในการควบคุมความดันโลหิต ระยะพัก 3 นาที อาจยาวเกินไปจนลด metabolite accumulation ที่จำเป็น (NO, prostaglandins)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2: MSc / Publication 2021 -->
+    <div class="card blue fade-in" onclick="toggle(this)">
+      <div class="card-meta">
+        <span class="year-chip">2564</span>
+        <span class="type-chip original">ตีพิมพ์ · First Author</span>
+      </div>
+      <h3 class="card-title">Exercise Pressor Response — งานวิจัยตีพิมพ์ระดับนานาชาติ</h3>
+      <p class="card-en">Published Research (First Author, 2021) — Exercise Pressor Response Study · International Journal</p>
+      <div class="expand-hint"><span class="arrow">▶</span> ดูรายละเอียด</div>
+      <div class="card-detail">
+        <div class="card-detail-inner">
+          <div class="detail-block">
+            <h4>สถานะ</h4>
+            <p>ตีพิมพ์ในวารสารระดับนานาชาติ ปี 2021 ในฐานะ First Author ต่อยอดจากงานวิจัย M.Sc. มหาวิทยาลัยขอนแก่น (หลักสูตรวิจัย)</p>
+          </div>
+          <div class="detail-block">
+            <h4>สาขาการวิจัย</h4>
+            <p>Exercise Physiology · Cardiovascular Response · Resistance Training · Blood Pressure Regulation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3: SUT Cardiac Rehab Study -->
+    <div class="card fade-in" onclick="toggle(this)">
+      <div class="card-meta">
+        <span class="year-chip">2565</span>
+        <span class="type-chip clinical">Cardiopulmonary · SUT Hospital</span>
+      </div>
+      <h3 class="card-title">ความสัมพันธ์ระหว่าง 6MWT และ 5MWT ในผู้ป่วย Cardiac Rehabilitation (NYHA class II–III)</h3>
+      <p class="card-en">Correlation Between 6-Minute Walk Test and 5-Meter Gait Speed Test on NYHA Class in Cardiac Rehabilitation — SUTH-CRC-01/2565</p>
+      <div class="expand-hint"><span class="arrow">▶</span> ดูรายละเอียด</div>
+      <div class="card-detail">
+        <div class="card-detail-inner">
+          <div class="detail-block">
+            <h4>การออกแบบ</h4>
+            <ul>
+              <li>Cross-sectional study (n=22 ผู้ป่วยผ่าตัดหัวใจ)</li>
+              <li>NYHA class II (n=13), class III (n=9)</li>
+              <li>อายุเฉลี่ย 62.62 ± 11.49 ปี (CII), 65.44 ± 8.92 ปี (CIII)</li>
+              <li>วัดทั้ง 6MWT และ 5MWT ในผู้ป่วยรายเดียวกัน</li>
+              <li>ทุนวิจัย SUT ปีงบประมาณ 2565 · รหัส SUTH-CRC-01/2565</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h4>ผลลัพธ์</h4>
+            <ul>
+              <li>NYHA II: 6MWT = 0.99±0.23 m/s, 5MWT = 1.19±0.22 m/s</li>
+              <li>NYHA III: 6MWT = 0.65±0.22 m/s, 5MWT = 0.78±0.21 m/s</li>
+              <li>Kappa's score r = 0.87 (Class II) และ r = 0.78 (Class III)</li>
+              <li>ความแตกต่างระหว่างกลุ่ม p = 0.002 (6MWT), p = 0.004 (5MWT)</li>
+            </ul>
+            <div class="stat-row">
+              <div class="stat"><div class="stat-val">0.87</div><div class="stat-lbl">Kappa CII</div></div>
+              <div class="stat"><div class="stat-val">0.78</div><div class="stat-lbl">Kappa CIII</div></div>
+              <div class="stat"><div class="stat-val">22</div><div class="stat-lbl">Patients</div></div>
+            </div>
+          </div>
+          <div class="detail-block" style="grid-column:1/-1">
+            <h4>นัยสำคัญทางคลินิก</h4>
+            <p>5MWT สามารถใช้แทน 6MWT ในการประเมินสมรรถภาพหัวใจเบื้องต้นได้ ประหยัดเวลาและพื้นที่ มีความสัมพันธ์ระดับ "ดีมาก" ใน NYHA class II และ "ดี" ใน class III สามารถนำไปวางแผนโปรแกรม Cardiac Rehabilitation ได้จริง</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 4: SCI / EksoNR Case -->
+    <div class="card fade-in" onclick="toggle(this)">
+      <div class="card-meta">
+        <span class="year-chip">2567–2568</span>
+        <span class="type-chip clinical">Neurological · Case Report · สภากาชาดไทย</span>
+      </div>
+      <h3 class="card-title">Progressive RAGT ใน SCI ASIA A→B: จาก HIWIN สู่ EksoNR พร้อม Adverse Event Documentation</h3>
+      <p class="card-en">Multi-System Robotic Gait Training in Complex SCI — Neurological Reclassification ASIA A to ASIA B, EksoNR Trial with Documented Adverse Event &amp; Clinical Decision Making</p>
+      <div class="expand-hint"><span class="arrow">▶</span> ดูรายละเอียด</div>
+      <div class="card-detail">
+        <div class="card-detail-inner">
+          <div class="detail-block">
+            <h4>Timeline ทางคลินิก</h4>
+            <ul>
+              <li>เริ่มรักษา กันยายน 2567 ด้วย HIWIN Robotic Gait System</li>
+              <li>HIWIN 10+ sessions → Neurological reclassification ASIA A → ASIA B</li>
+              <li>ทดลอง EksoNR Exoskeleton 1 session</li>
+              <li>พบ bow leg geometry + head of fibula บวม (คล้าย bursitis) หลัง 1 วัน</li>
+              <li>รักษาด้วยการประคบเย็น → หายเป็นปกติ ไม่มีเสียงผิดปกติจากข้อ</li>
+              <li>Clinical decision: กลับมาใช้ HIWIN เช่นเดิม</li>
+              <li>Adverse event documented ใน Hospital Record อย่างเป็นทางการ</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h4>นัยสำคัญทางคลินิก</h4>
+            <ul>
+              <li>แสดงความสำคัญของ Body Geometry Assessment ก่อน Exoskeleton Fitting</li>
+              <li>Bow leg morphology = contraindication สัมพัทธ์สำหรับ EksoNR</li>
+              <li>Adverse event + resolution มี source document จาก hospital record</li>
+              <li>อยู่ระหว่างเตรียม Case Report — Conference Presentation เป็นเป้าหมายทันที</li>
+            </ul>
+            <div class="stat-row">
+              <div class="stat"><div class="stat-val">10+</div><div class="stat-lbl">HIWIN sessions</div></div>
+              <div class="stat"><div class="stat-val">A→B</div><div class="stat-lbl">ASIA Reclass</div></div>
+              <div class="stat"><div class="stat-val">1</div><div class="stat-lbl">EksoNR trial</div></div>
+            </div>
+          </div>
+          <div class="detail-block" style="grid-column:1/-1">
+            <h4>ประสบการณ์รวม Robotic Gait Training (ทุกคนไข้)</h4>
+            <p>ประสบการณ์การใช้หุ่นยนต์ช่วยเดิน &gt;100 sessions รวมคนไข้ทุกราย ได้แก่ SCI (C–T level), TBI และ Stroke ณ ศูนย์เวชศาสตร์ฟื้นฟู สภากาชาดไทย ครอบคลุมทั้ง HIWIN, R-GAIT และ EksoNR</p>
+          </div>
+          <div class="detail-block" style="grid-column:1/-1">
+            <h4>Clinical Tools ที่พัฒนาจากประสบการณ์นี้</h4>
+            <p>RG-RST (Robot Gait Readiness Scoring Tool) รวม body geometry assessment, RAGT Readiness Checklist, Clinical Decision Flowchart สำหรับ PT Interns — เชื่อมโยงกับ DKES Innovation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 5: SRC 2026 -->
+    <div class="card gold fade-in" onclick="toggle(this)">
+      <div class="card-meta">
+        <span class="year-chip">2569</span>
+        <span class="type-chip thesis">Conference · SRC 2026</span>
+      </div>
+      <h3 class="card-title">Gait Speed Correlation Study — SRC 2026 (Abstract ID: 0007)</h3>
+      <p class="card-en">Correlation of Gait Speed Tests in Cardiac Surgery Patients — Submitted to SRC 2026 · Pearson r = 0.807</p>
+      <div class="expand-hint"><span class="arrow">▶</span> ดูรายละเอียด</div>
+      <div class="card-detail">
+        <div class="card-detail-inner">
+          <div class="detail-block">
+            <h4>ผลลัพธ์หลัก</h4>
+            <ul>
+              <li>Pearson r = 0.807 (ความสัมพันธ์ระดับสูง)</li>
+              <li>ระหว่าง 6MWT และ 5MWT ในผู้ป่วยผ่าตัดหัวใจ</li>
+              <li>Abstract ID: 0007</li>
+              <li>นำเสนอใน SRC 2026 Conference</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h4>ต่อยอดจาก</h4>
+            <p>งานวิจัย SUTH-CRC-01/2565 ขยายกลุ่มตัวอย่าง เพิ่มการวิเคราะห์ Pearson correlation พร้อมนำเสนอในระดับ Conference อย่างเป็นทางการ</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /timeline -->
+</section>
+
+<!-- INNOVATIONS -->
+<section class="innovation-section" style="margin-top:3rem">
+  <p class="section-label">นวัตกรรมและโครงการพิเศษ</p>
+  <div class="innovation-grid">
+
+    <div class="innov-card fade-in">
+      <div class="innov-icon">🫁</div>
+      <div class="innov-name">Breathe Belt</div>
+      <p class="innov-desc">อุปกรณ์ฝึกการหายใจเชิงนวัตกรรม พัฒนาร่วมกับ SUT School of Engineering ได้รับทุน TED Fund 100,000 บาท นำเสนอใน HACC 2022</p>
+      <span class="innov-tag">TED Fund · HACC 2022</span>
+    </div>
+
+    <div class="innov-card fade-in">
+      <div class="innov-icon">🦿</div>
+      <div class="innov-name">DKES — Dynamic Knee-Ankle Elastic Sling</div>
+      <p class="innov-desc">เทคนิคการพันผ้ายืดต้นฉบับที่สร้าง mechanical linkage ระหว่างข้อเท้าและเข่า เพื่อ counter plantar flexor spasticity ขณะเดิน ยังอยู่ระหว่าง validation</p>
+      <a href="https://rehabarchitect.github.io/Dynamic-Knee-Control-Elastic-Sling-Innovation/" target="_blank" style="display:block;margin-top:.5rem">
+        <span class="innov-tag" style="cursor:pointer">↗ ดู DKES Innovation Page</span>
+      </a>
+    </div>
+
+    <div class="innov-card fade-in">
+      <div class="innov-icon">🤖</div>
+      <div class="innov-name">RG-RST (Robot Gait Readiness Scoring Tool)</div>
+      <p class="innov-desc">Interactive Web-based Clinical Decision Support Tool สำหรับประเมินความพร้อมผู้ป่วยก่อนเริ่ม RAGT พร้อม Flowchart สำหรับ PT Interns</p>
+      <span class="innov-tag">Clinical Tool · Thai Red Cross</span>
+    </div>
+
+    <div class="innov-card fade-in">
+      <div class="innov-icon">📊</div>
+      <div class="innov-name">EksoNR Analytics Dashboard</div>
+      <p class="innov-desc">Dashboard วิเคราะห์ข้อมูลผู้ป่วย Multi-diagnostic group รวม TBI Spotlight Case ใช้ติดตาม progress และรองรับการวิจัยต่อเนื่อง</p>
+      <span class="innov-tag">Data Analytics · EksoNR</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2568 Prawit Prakosre, M.Sc. PT · ใบอนุญาต ก.9573 · Thai Red Cross Rehabilitation Center</p>
+  <div style="display:flex;gap:1.5rem;flex-wrap:wrap">
+    <a href="https://rehabarchitect.github.io/rehabarchitect.com/" target="_blank">↗ Portfolio Site</a>
+    <a href="https://rehabarchitect.github.io/Dynamic-Knee-Control-Elastic-Sling-Innovation/" target="_blank">↗ DKES Innovation</a>
+    <a href="https://www.tiktok.com/@rehabarchitect.th" target="_blank">↗ @rehabarchitect.th</a>
+  </div>
+</footer>
+
+<script>
+  function toggle(card) {
+    card.classList.toggle('open');
+  }
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
