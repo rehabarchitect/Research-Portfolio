@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Prawit Prakosre — Rehabilitation Technology & Clinical Innovation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafbfc;
+            color: #1a1e24;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #2c7da0;
+            background: #e9f0f5;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        /* Header / Nav */
+        .navbar {
+            padding: 1.8rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            background: rgba(250,251,252,0.92);
+            backdrop-filter: blur(12px);
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            justify-content: flex-end;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #2c3e50;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #1e6f5c;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 5rem 0 4rem;
+            border-bottom: 1px solid #e9edf2;
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .hero-main {
+            flex: 2;
+        }
+
+        .hero-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: #2c7da0;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            margin-bottom: 1rem;
+        }
+
+        .hero-highlight {
+            color: #1e6f5c;
+            border-bottom: 2px solid #c0e0de;
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: #2d3e50;
+            max-width: 700px;
+            margin: 1.5rem 0 1.8rem;
+        }
+
+        .stats {
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            font-weight: 600;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e6f5c;
+        }
+
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1rem;
+        }
+
+        .badge {
+            background: white;
+            border: 1px solid #dce4ec;
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #e9edf2;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .domain-card, .pub-card, .innovation-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+            border: 1px solid #edf2f7;
+        }
+
+        .domain-card:hover, .pub-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.08);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1e6f5c;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .pub-meta {
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: #527a7a;
+            margin: 1rem 0 0.5rem;
+        }
+
+        hr {
+            margin: 2rem 0;
+            border: 0;
+            height: 1px;
+            background: #e2e8f0;
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .philosophy-item {
+            background: #f7f9fc;
+            padding: 1.5rem;
+            border-radius: 1.2rem;
+            border-left: 4px solid #2c7da0;
+        }
+
+        footer {
+            padding: 3rem 0 4rem;
+            text-align: center;
+            color: #5a6e7c;
+        }
+
+        .button-outline {
+            display: inline-block;
+            border: 1px solid #1e6f5c;
+            padding: 0.7rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 500;
+            text-decoration: none;
+            color: #1e6f5c;
+            transition: 0.2s;
+        }
+
+        .button-outline:hover {
+            background: #1e6f5c;
+            color: white;
+        }
+
+        @media (max-width: 780px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            .nav-links {
+                justify-content: center;
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+            <div style="font-weight: 700; font-size: 1.4rem; letter-spacing: -0.3px;">Prawit Prakosre <span style="font-weight: normal; color: #4a6a7a;">· Rehab Architect</span></div>
+            <div class="nav-links">
+                <a href="#research">Research</a>
+                <a href="#innovation">Innovation</a>
+                <a href="#clinical">Clinical impact</a>
+                <a href="#philosophy">Approach</a>
+                <a href="#contact">Connect</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <div class="container">
+        <!-- Hero section -->
+        <div class="hero">
+            <div class="hero-grid">
+                <div class="hero-main">
+                    <div class="hero-badge">M.Sc. Physiotherapy · Innovation Fellow</div>
+                    <h1 class="hero-title">Bridging <span class="hero-highlight">cardiorespiratory rehabilitation</span> & medical device innovation</h1>
+                    <p class="hero-desc">Physiotherapist, researcher, and inventor of Breathe Belt — the first device enabling breathing training in intubated patients. Translating clinical problems into evidence-based technology & startup ventures.</p>
+                    <div class="badge-list">
+                        <span class="badge">🎓 M.Sc. Physical Therapy (KKU)</span>
+                        <span class="badge">🧠 Cardiopulmonary & Neuro Rehab</span>
+                        <span class="badge">💡 TED Fund Grantee</span>
+                        <span class="badge">⚙️ Breathe Belt inventor</span>
+                    </div>
+                    <div class="stats">
+                        <div class="stat-item"><span class="stat-number">8+</span> <br>Clinical years</div>
+                        <div class="stat-item"><span class="stat-number">4</span> <br>Research studies</div>
+                        <div class="stat-item"><span class="stat-number">1</span> <br>Medical device prototype</div>
+                        <div class="stat-item"><span class="stat-number">2</span> <br>Grants & awards</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 01 — Research Portfolio -->
+        <section id="research">
+            <span class="section-label">01 — Research & evidence</span>
+            <h2>Clinical studies &<br>translational science.</h2>
+            <div class="card-grid">
+                <div class="pub-card">
+                    <div class="card-icon"><i class="fas fa-lungs"></i></div>
+                    <div class="card-title">Breathe Belt feasibility</div>
+                    <p>Pilot RCT in post-op & ventilated patients: increased chest expansion, safe usage, improved breathing pattern (p=0.004). First device of its kind for intubated patients.</p>
+                    <div class="pub-meta">🔬 2022 · SUTH Innovation Award</div>
+                </div>
+                <div class="pub-card">
+                    <div class="card-icon"><i class="fas fa-heartbeat"></i></div>
+                    <div class="card-title">Slow loaded breathing in HTN + T2DM</div>
+                    <p>8-week sham-controlled trial (n=17). Resting BP, HRV, exercise pressor response not significantly changed. Negative result adds crucial evidence to non-pharm management.</p>
+                    <div class="pub-meta">📄 Master’s thesis (KKU) · TCTR20190723001</div>
+                </div>
+                <div class="pub-card">
+                    <div class="card-icon"><i class="fas fa-walking"></i></div>
+                    <div class="card-title">6MWT vs 5M gait speed in cardiac rehab</div>
+                    <p>Cross-sectional study NYHA II/III. Strong correlation (Kappa 0.87), suggesting 5M walk test as practical alternative in Thai hospital settings.</p>
+                    <div class="pub-meta">📊 Srinagarind Med J · Preliminary report 2022</div>
+                </div>
+                <div class="pub-card">
+                    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="card-title">Exercise pressor response in elderly DM+HT</div>
+                    <p>Augmented BP & HR response during static exercise, but not during PECO — indicating vascular rather than cardiac limitation.</p>
+                    <div class="pub-meta">📖 Public Health J Burapha Univ · 2021</div>
+                </div>
+            </div>
+            <div style="margin-top: 1rem;">
+                <a href="#" style="color: #1e6f5c; font-weight: 500;">↗ Full publication list & preprints</a>
+            </div>
+        </section>
+
+        <!-- 02 — Innovation & Device Ecosystem -->
+        <section id="innovation">
+            <span class="section-label">02 — MedTech & Startup</span>
+            <h2>From clinical gap to<br>regulated device.</h2>
+            <div class="card-grid">
+                <div class="innovation-card">
+                    <div class="card-icon"><i class="fas fa-microchip"></i></div>
+                    <div class="card-title">Breathe Belt · respiratory trainer</div>
+                    <p>Wearable biofeedback device (OLED, audio/visual cues) that monitors thoracic expansion. Enables safe breathing training during mechanical ventilation — no other commercial device offers this.</p>
+                    <div class="badge-list" style="margin-top: 12px;"><span class="badge">Patent pending</span><span class="badge">ISO13485 ready</span></div>
+                </div>
+                <div class="innovation-card">
+                    <div class="card-icon"><i class="fas fa-chart-simple"></i></div>
+                    <div class="card-title">TED Fund business plan (Y1064)</div>
+                    <p>Complete commercialisation strategy: market size (Thai med equip ~33B THB), direct/indirect competition, pricing (25,000 THB), distribution via BDMS & listed distributors, 5-year financials.</p>
+                    <div class="pub-meta">💰 4.49M THB investment plan · IRR 22% · Payback 4 years</div>
+                </div>
+                <div class="innovation-card">
+                    <div class="card-icon"><i class="fas fa-robot"></i></div>
+                    <div class="card-title">Future pipeline · AI & tele-rehab</div>
+                    <p>Version 2.0: remote monitoring, machine learning to predict weaning success, integration with hospital EMR. Expanding to geriatric & sarcopenia populations.</p>
+                </div>
+            </div>
+            <div style="background: #eef3f0; border-radius: 1.2rem; padding: 1.5rem; margin-top: 1rem;">
+                <p style="font-weight: 500;">📍 Competitors: Incentive spirometry, Breath trainer — Breathe Belt unique advantage: use during intubation + multi-biofeedback + single unit design.</p>
+            </div>
+        </section>
+
+        <!-- 03 — Clinical Impact & Implementation -->
+        <section id="clinical">
+            <span class="section-label">03 — Clinical implementation</span>
+            <h2>Translating evidence into<br>daily rehabilitation practice.</h2>
+            <div class="philosophy-grid">
+                <div class="philosophy-item">
+                    <i class="fas fa-check-circle" style="color:#2c7da0; margin-bottom: 12px; display: inline-block;"></i>
+                    <h3 style="margin-bottom: 0.5rem;">5-meter walk test</h3>
+                    <p>Adopted in local cardiac rehabilitation protocol as a surrogate for 6MWT when corridor space limited. Reduces assessment time by 80%.</p>
+                </div>
+                <div class="philosophy-item">
+                    <i class="fas fa-check-circle" style="color:#2c7da0; margin-bottom: 12px;"></i>
+                    <h3 style="margin-bottom: 0.5rem;">Breathe Belt pilot in SUT Hospital</h3>
+                    <p>Used in post-surgical and ventilated patients (n=20). Zero adverse events, patient satisfaction 4/5. Currently implementing Phase II clinical protocol.</p>
+                </div>
+                <div class="philosophy-item">
+                    <i class="fas fa-check-circle" style="color:#2c7da0; margin-bottom: 12px;"></i>
+                    <h3 style="margin-bottom: 0.5rem;">Slow loaded breathing</h3>
+                    <p>Despite neutral BP effect, protocol improved inspiratory muscle endurance & patient self-efficacy. Now integrated as adjunct therapy for breathlessness.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 — Clinical philosophy (inspired by RehabArchitect) -->
+        <section id="philosophy">
+            <span class="section-label">04 — Clinical philosophy</span>
+            <h2>Principles that guide<br>rehabilitation & innovation.</h2>
+            <div class="philosophy-grid">
+                <div class="philosophy-item"><strong>01</strong><br>Motor learning cannot be bypassed — only optimized. Technology must enhance neuroplasticity, not substitute it.</div>
+                <div class="philosophy-item"><strong>02</strong><br>Adaptive assistance over passive correction. Progressive challenge within the zone of proximal recovery.</div>
+                <div class="philosophy-item"><strong>03</strong><br>Movement variability as a therapeutic target. Controlled variability reflects natural motor control dynamics.</div>
+                <div class="philosophy-item"><strong>04</strong><br>Technology serves the human, not the protocol. Patient-device interaction requires skilled interpretation.</div>
+                <div class="philosophy-item"><strong>05</strong><br>Evidence informs; clinical reasoning decides. Translational rehabilitation balances research, biology, goals, environment.</div>
+                <div class="philosophy-item"><strong>06</strong><br>Rehabilitation systems are designed, not discovered. From assessment frameworks to outcome measurement.</div>
+            </div>
+            <div style="margin-top: 2rem; background: #f1f5f9; border-radius: 1rem; padding: 1.5rem; font-style: italic;">
+                <i class="fas fa-quote-left" style="margin-right: 0.5rem; opacity: 0.6;"></i> “The next frontier of rehabilitation is not a device — it is the science of knowing when, how, and for whom to deploy one.”
+            </div>
+        </section>
+
+        <!-- 05 — Education & knowledge translation (gap addressed) -->
+        <section>
+            <span class="section-label">05 — Clinical education & mentorship</span>
+            <h2>Building capacity in<br>rehabilitation technology.</h2>
+            <div class="card-grid">
+                <div class="domain-card">
+                    <i class="fas fa-chalkboard-user card-icon"></i>
+                    <div class="card-title">Intern supervision</div>
+                    <p>Supervised 20+ PT interns in cardiopulmonary & neurorehabilitation settings — structured clinical reasoning and device-assisted rehab protocols.</p>
+                </div>
+                <div class="domain-card">
+                    <i class="fas fa-microphone-alt card-icon"></i>
+                    <div class="card-title">Conference presentations</div>
+                    <p>ERS International Congress (2022), Falling Walls Lab Thailand (2022), Annual SUTH Research Symposium. Speaker on breathing device innovation.</p>
+                </div>
+                <div class="domain-card">
+                    <i class="fas fa-chalkboard card-icon"></i>
+                    <div class="card-title">Workshops & training</div>
+                    <p>Co-developed in-service training on “Outcome measures in cardiac rehabilitation” and “Biofeedback in respiratory physiotherapy”.</p>
+                </div>
+            </div>
+            <div class="badge-list" style="justify-content: center;"><span class="badge">📘 Guest lecture, SUT PT program</span><span class="badge">🧪 Mentor, Youth Startup Fund</span></div>
+        </section>
+
+        <!-- 06 — Strategic positioning & future directions -->
+        <section>
+            <span class="section-label">06 — Strategic roadmap</span>
+            <h2>Future directions &<br>collaborative vision.</h2>
+            <div class="philosophy-grid">
+                <div class="philosophy-item"><strong>🔬 Biomechanical validation</strong><br>Instrumented analysis of Breathe Belt effect on chest wall kinematics (3D motion capture).</div>
+                <div class="philosophy-item"><strong>🤖 AI-powered weaning prediction</strong><br>Integrating real-time respiratory data to predict successful extubation in ICU.</div>
+                <div class="philosophy-item"><strong>🌏 Multi-center trials</strong><br>Expanding to 3 Thai tertiary hospitals to strengthen clinical evidence for regulatory approval.</div>
+                <div class="philosophy-item"><strong>🎓 Rehabilitation engineering lab</strong><br>Establishing a clinical innovation unit bridging physiotherapy and biomedical engineering.</div>
+            </div>
+        </section>
+
+        <!-- 07 — Contact & collaboration -->
+        <section id="contact">
+            <span class="section-label">07 — Connect & collaborate</span>
+            <h2>Let’s build something<br>meaningful.</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin: 2rem 0;">
+                <div style="flex:1; min-width: 200px;">
+                    <i class="fas fa-flask"></i>
+                    <h3 style="margin: 0.5rem 0;">Research partnership</h3>
+                    <p style="color: #3a5e6e;">Clinical trials, respiratory rehab, device validation.</p>
+                </div>
+                <div style="flex:1; min-width: 200px;">
+                    <i class="fas fa-briefcase"></i>
+                    <h3 style="margin: 0.5rem 0;">Medical affairs & innovation</h3>
+                    <p style="color: #3a5e6e;">Clinical evidence generation, KOL engagement, product strategy.</p>
+                </div>
+                <div style="flex:1; min-width: 200px;">
+                    <i class="fas fa-chalkboard-user"></i>
+                    <h3 style="margin: 0.5rem 0;">Clinical education</h3>
+                    <p style="color: #3a5e6e;">Workshops, curriculum design, mentorship in rehabilitation technology.</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                <a href="#" class="button-outline"><i class="fas fa-envelope"></i> prawit.wit@gmail.com</a>
+                <a href="#" class="button-outline"><i class="fab fa-linkedin"></i> LinkedIn / Prawit</a>
+                <a href="#" class="button-outline"><i class="fab fa-researchgate"></i> ResearchGate</a>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <hr style="max-width: 100px; margin: 0 auto 2rem auto;">
+        <p>© 2026 Prawit Prakosre — Rehabilitation Technology & Clinical Innovation. Built on evidence, designed for impact.</p>
+        <p style="margin-top: 0.8rem; font-size: 0.8rem;">Breathe Belt · TED Fund Y1064 · R2R Facilitator · Thai Red Cross</p>
+    </div>
+</footer>
+
+<!-- smooth scroll & little interactivity -->
+<script>
+    document.querySelectorAll('.nav-links a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const hash = this.getAttribute('href');
+            if(hash && hash.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(hash);
+                if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+</script>
+</body>
+</html>
+```
