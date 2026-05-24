@@ -1,0 +1,2397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prawit Prakosre | Clinical Rehabilitation & Medical Technology Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --deep-blue: #0d2147;
+    --blue: #1a3a6e;
+    --teal: #00b4a6;
+    --teal-light: #00d4c4;
+    --teal-dim: rgba(0,180,166,0.12);
+    --teal-glow: rgba(0,180,166,0.35);
+    --white: #f8f9fc;
+    --off-white: #e8ecf4;
+    --mid-gray: #8a9ab8;
+    --text-body: #c5cfe0;
+    --text-dim: #6a7a96;
+    --gold: #c4a55a;
+    --card-bg: rgba(13,33,71,0.6);
+    --card-border: rgba(0,180,166,0.18);
+    --section-gap: 120px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    background-color: var(--navy);
+    color: var(--text-body);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* Animated Background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 10% 10%, rgba(0,180,166,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 60% at 90% 80%, rgba(26,58,110,0.4) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 50% 50%, rgba(0,180,166,0.03) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Grid overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,180,166,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,180,166,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ═══════════════════ NAV ═══════════════════ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 0 48px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(10,22,40,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,180,166,0.1);
+    transition: all 0.3s ease;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-logo span { color: var(--teal); }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--teal); }
+
+  .nav-cta {
+    background: transparent;
+    border: 1px solid var(--teal);
+    color: var(--teal);
+    padding: 8px 20px;
+    border-radius: 2px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+
+  .nav-cta:hover {
+    background: var(--teal);
+    color: var(--navy);
+  }
+
+  /* ═══════════════════ HERO ═══════════════════ */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 48px 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--teal-dim);
+    border: 1px solid rgba(0,180,166,0.3);
+    padding: 6px 14px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+  }
+
+  .hero-badge-dot {
+    width: 6px; height: 6px;
+    background: var(--teal);
+    border-radius: 50%;
+    animation: pulse-dot 2s ease infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero-badge span {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+
+  .hero-name-th {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 26px);
+    font-weight: 300;
+    color: var(--mid-gray);
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 28px;
+  }
+
+  .hero-mission {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--text-body);
+    line-height: 1.8;
+    max-width: 520px;
+    margin-bottom: 40px;
+  }
+
+  .hero-mission em {
+    color: var(--teal-light);
+    font-style: normal;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--teal);
+    color: var(--navy);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 2px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    font-weight: 400;
+  }
+
+  .btn-primary:hover {
+    background: var(--teal-light);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    padding: 14px 32px;
+    border: 1px solid rgba(200,210,230,0.3);
+    border-radius: 2px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+    transform: translateY(-1px);
+  }
+
+  /* Hero Right - Identity Cards */
+  .hero-identities {
+    display: grid;
+    gap: 14px;
+  }
+
+  .identity-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-left: 3px solid var(--teal);
+    padding: 20px 24px;
+    border-radius: 2px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    cursor: default;
+  }
+
+  .identity-card:hover {
+    border-color: var(--teal);
+    background: rgba(0,180,166,0.08);
+    transform: translateX(4px);
+  }
+
+  .identity-number {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--teal);
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+
+  .identity-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .identity-desc {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+
+  /* Hero Stats Strip */
+  .hero-stats {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: rgba(0,180,166,0.1);
+    border: 1px solid rgba(0,180,166,0.1);
+    margin-top: 40px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .hero-stat {
+    background: rgba(10,22,40,0.8);
+    padding: 24px 20px;
+    text-align: center;
+  }
+
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--teal);
+    display: block;
+    line-height: 1;
+  }
+
+  .hero-stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-top: 6px;
+    display: block;
+  }
+
+  /* ═══════════════════ SECTIONS ═══════════════════ */
+  section {
+    padding: var(--section-gap) 48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    height: 1px;
+    width: 60px;
+    background: var(--teal);
+    opacity: 0.4;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+    color: var(--text-dim);
+    max-width: 600px;
+    margin-bottom: 56px;
+    line-height: 1.7;
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,180,166,0.2), transparent);
+    margin: 0 48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ═══════════════════ ABOUT ═══════════════════ */
+  #about { background: transparent; }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-narrative {
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--text-body);
+  }
+
+  .about-narrative p { margin-bottom: 20px; }
+
+  .about-narrative strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  .about-narrative .highlight {
+    color: var(--teal-light);
+    font-style: italic;
+  }
+
+  .about-right { display: flex; flex-direction: column; gap: 20px; }
+
+  .credential-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 20px 24px;
+    border-radius: 2px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    transition: border-color 0.2s;
+  }
+
+  .credential-card:hover { border-color: rgba(0,180,166,0.4); }
+
+  .cred-icon {
+    width: 36px; height: 36px;
+    background: var(--teal-dim);
+    border: 1px solid rgba(0,180,166,0.3);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .cred-info h4 {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 3px;
+  }
+
+  .cred-info p {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.4;
+  }
+
+  /* Expertise Tags */
+  .expertise-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 28px;
+  }
+
+  .tag {
+    background: var(--teal-dim);
+    border: 1px solid rgba(0,180,166,0.25);
+    color: var(--teal-light);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 2px;
+  }
+
+  /* ═══════════════════ RESEARCH ═══════════════════ */
+  #research { background: rgba(13,33,71,0.3); }
+
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .research-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 2px;
+    padding: 36px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .research-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--teal), var(--teal-light));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .research-card:hover::before { transform: scaleX(1); }
+
+  .research-card:hover {
+    border-color: rgba(0,180,166,0.35);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+
+  .research-card.featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    border-color: rgba(0,180,166,0.25);
+    border-left: 3px solid var(--teal);
+  }
+
+  .research-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal);
+    padding: 4px 10px;
+    background: var(--teal-dim);
+    border: 1px solid rgba(0,180,166,0.2);
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+
+  .research-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  .research-card p {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .research-meta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .research-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .research-meta-item .meta-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .research-meta-item .meta-val {
+    font-size: 13px;
+    color: var(--white);
+    font-weight: 400;
+  }
+
+  /* Stat Visual */
+  .stat-visual {
+    background: rgba(0,180,166,0.05);
+    border: 1px solid rgba(0,180,166,0.12);
+    border-radius: 4px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .stat-row-label {
+    font-size: 12px;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+
+  .stat-bar-wrap {
+    flex: 1;
+    height: 4px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .stat-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--teal), var(--teal-light));
+    border-radius: 2px;
+    transition: width 1.5s ease;
+  }
+
+  .stat-val {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--teal);
+    white-space: nowrap;
+  }
+
+  /* ═══════════════════ INNOVATION ═══════════════════ */
+  #innovation { background: transparent; }
+
+  .innovation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .innovation-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 2px;
+    padding: 32px 28px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .innovation-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 80px; height: 80px;
+    background: radial-gradient(circle at 100% 100%, rgba(0,180,166,0.1), transparent 70%);
+    pointer-events: none;
+  }
+
+  .innovation-card:hover {
+    border-color: rgba(0,180,166,0.4);
+    transform: translateY(-4px);
+  }
+
+  .inno-status {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+
+  .status-active { background: rgba(0,180,166,0.12); color: var(--teal); border: 1px solid rgba(0,180,166,0.25); }
+  .status-deployed { background: rgba(196,165,90,0.12); color: var(--gold); border: 1px solid rgba(196,165,90,0.25); }
+  .status-development { background: rgba(100,120,180,0.12); color: #8a9adb; border: 1px solid rgba(100,120,180,0.25); }
+
+  .innovation-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .innovation-card p {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .inno-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .inno-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    padding: 3px 8px;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 2px;
+  }
+
+  /* Ekso Featured */
+  .innovation-featured {
+    background: var(--card-bg);
+    border: 1px solid rgba(0,180,166,0.3);
+    border-radius: 2px;
+    padding: 48px;
+    backdrop-filter: blur(10px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .innovation-featured::before {
+    content: 'FEATURED';
+    position: absolute;
+    top: 20px; right: 24px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--teal);
+    opacity: 0.4;
+  }
+
+  .inno-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .inno-step {
+    display: flex;
+    gap: 16px;
+    padding-bottom: 24px;
+    position: relative;
+  }
+
+  .inno-step:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 28px;
+    bottom: 0;
+    width: 1px;
+    background: rgba(0,180,166,0.2);
+  }
+
+  .inno-step-dot {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    border: 1px solid var(--teal);
+    background: var(--teal-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--teal);
+    flex-shrink: 0;
+  }
+
+  .inno-step-content h4 {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 3px;
+  }
+
+  .inno-step-content p {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+
+  /* ═══════════════════ PUBLICATIONS ═══════════════════ */
+  #publications { background: rgba(13,33,71,0.3); }
+
+  .pub-filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+  }
+
+  .pub-filter {
+    background: transparent;
+    border: 1px solid rgba(200,210,230,0.15);
+    color: var(--text-dim);
+    padding: 7px 16px;
+    border-radius: 2px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .pub-filter:hover, .pub-filter.active {
+    background: var(--teal-dim);
+    border-color: var(--teal);
+    color: var(--teal);
+  }
+
+  .pub-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .pub-item {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 2px;
+    padding: 28px 32px;
+    backdrop-filter: blur(10px);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 24px;
+    align-items: start;
+    transition: border-color 0.2s;
+  }
+
+  .pub-item:hover { border-color: rgba(0,180,166,0.35); }
+
+  .pub-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--teal);
+    opacity: 0.6;
+    line-height: 1;
+    padding-top: 4px;
+  }
+
+  .pub-content h4 {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .pub-journal {
+    font-size: 12px;
+    color: var(--teal);
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+
+  .pub-authors {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+  }
+
+  .pub-summary {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  .pub-doi {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--teal);
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid rgba(0,180,166,0.25);
+    border-radius: 2px;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+
+  .pub-doi:hover {
+    background: var(--teal-dim);
+    color: var(--teal-light);
+  }
+
+  /* ═══════════════════ CONFERENCES ═══════════════════ */
+  #conferences { background: transparent; }
+
+  .conf-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .conf-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 2px;
+    padding: 28px;
+    backdrop-filter: blur(10px);
+    transition: all 0.2s;
+  }
+
+  .conf-card:hover {
+    border-color: rgba(0,180,166,0.35);
+    transform: translateY(-2px);
+  }
+
+  .conf-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .type-intl { color: var(--teal); }
+  .type-natl { color: var(--gold); }
+
+  .conf-card h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .conf-meta {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+
+  .conf-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+
+  .badge-oral { background: rgba(0,180,166,0.12); color: var(--teal); border: 1px solid rgba(0,180,166,0.2); }
+  .badge-poster { background: rgba(196,165,90,0.12); color: var(--gold); border: 1px solid rgba(196,165,90,0.2); }
+
+  /* ═══════════════════ CLINICAL EDUCATION ═══════════════════ */
+  #education-section { background: rgba(13,33,71,0.3); }
+
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .edu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .edu-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .edu-year-marker {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--teal);
+    white-space: nowrap;
+    padding-top: 4px;
+    min-width: 40px;
+  }
+
+  .edu-content h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .edu-content p {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+
+  /* Teaching Tools */
+  .teaching-tools {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 2px;
+    padding: 36px;
+    backdrop-filter: blur(10px);
+  }
+
+  .teaching-tools h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .tool-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .tool-row:last-child { border-bottom: none; }
+
+  .tool-icon {
+    font-size: 18px;
+    width: 32px;
+    text-align: center;
+  }
+
+  .tool-info h5 {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--white);
+  }
+
+  .tool-info p {
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+
+  /* ═══════════════════ IMPACT DASHBOARD ═══════════════════ */
+  #impact { background: transparent; }
+
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .kpi-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 2px;
+    padding: 32px 24px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+
+  .kpi-card:hover {
+    border-color: rgba(0,180,166,0.35);
+    transform: translateY(-2px);
+  }
+
+  .kpi-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(0,180,166,0.06), transparent 60%);
+    pointer-events: none;
+  }
+
+  .kpi-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 600;
+    color: var(--teal);
+    line-height: 1;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .kpi-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .kpi-sub {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 6px;
+    opacity: 0.6;
+  }
+
+  /* Expertise Radar */
+  .expertise-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .expertise-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .exp-bar-item { display: flex; flex-direction: column; gap: 6px; }
+
+  .exp-bar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .exp-bar-name {
+    font-size: 13px;
+    color: var(--white);
+    font-weight: 400;
+  }
+
+  .exp-bar-pct {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--teal);
+  }
+
+  .exp-bar-track {
+    height: 3px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .exp-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--teal), var(--teal-light));
+    border-radius: 2px;
+  }
+
+  /* Robotic Comparison */
+  .robot-table {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 2px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+  }
+
+  .robot-table-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 0;
+    background: rgba(0,180,166,0.08);
+    border-bottom: 1px solid var(--card-border);
+    padding: 14px 24px;
+  }
+
+  .robot-table-header span {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  .robot-table-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    padding: 14px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    align-items: center;
+    transition: background 0.2s;
+  }
+
+  .robot-table-row:hover { background: rgba(0,180,166,0.04); }
+  .robot-table-row:last-child { border-bottom: none; }
+
+  .robot-table-row span {
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  .robot-table-row span:first-child { color: var(--white); font-weight: 400; }
+
+  .checkmark { color: var(--teal); font-size: 16px; }
+  .dash { color: var(--text-dim); opacity: 0.3; }
+
+  /* ═══════════════════ FUTURE VISION ═══════════════════ */
+  #vision { background: rgba(13,33,71,0.3); }
+
+  .vision-timeline {
+    position: relative;
+    padding-left: 40px;
+  }
+
+  .vision-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px; bottom: 8px;
+    width: 1px;
+    background: linear-gradient(180deg, var(--teal), transparent);
+  }
+
+  .vision-item {
+    position: relative;
+    padding-bottom: 48px;
+    padding-left: 32px;
+  }
+
+  .vision-item:last-child { padding-bottom: 0; }
+
+  .vision-item::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 8px;
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    border: 2px solid var(--teal);
+    background: var(--navy);
+  }
+
+  .vision-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+
+  .vision-item h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .vision-item p {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    max-width: 560px;
+  }
+
+  .vision-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .vision-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    border: 1px solid rgba(0,180,166,0.2);
+    color: var(--teal);
+    border-radius: 2px;
+  }
+
+  /* ═══════════════════ CONTACT / CTA ═══════════════════ */
+  #contact {
+    background: transparent;
+    text-align: center;
+  }
+
+  .contact-inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .contact-glow {
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(0,180,166,0.15), transparent 70%);
+    margin: 0 auto 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+  }
+
+  .contact-inner h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    color: var(--white);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  .contact-inner p {
+    font-size: 16px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 14px 24px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .contact-link:hover {
+    border-color: var(--teal);
+    transform: translateY(-2px);
+  }
+
+  .contact-link-icon { font-size: 18px; }
+
+  .contact-link-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .contact-link-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .contact-link-value {
+    font-size: 13px;
+    color: var(--white);
+    font-weight: 400;
+  }
+
+  /* ═══════════════════ FOOTER ═══════════════════ */
+  footer {
+    border-top: 1px solid rgba(0,180,166,0.1);
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-left {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--mid-gray);
+  }
+
+  .footer-right {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+  }
+
+  /* ═══════════════════ SCROLL ANIMATIONS ═══════════════════ */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-up-delay-1 { transition-delay: 0.1s; }
+  .fade-up-delay-2 { transition-delay: 0.2s; }
+  .fade-up-delay-3 { transition-delay: 0.3s; }
+
+  /* ═══════════════════ MOBILE ═══════════════════ */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    section { padding: 80px 24px; }
+    .divider { margin: 0 24px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-stats { grid-template-columns: repeat(3, 1fr); }
+    .about-grid { grid-template-columns: 1fr; }
+    .research-grid { grid-template-columns: 1fr; }
+    .research-card.featured { grid-column: auto; grid-template-columns: 1fr; }
+    .innovation-grid { grid-template-columns: 1fr; }
+    .innovation-featured { grid-template-columns: 1fr; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .conf-grid { grid-template-columns: 1fr; }
+    .edu-grid { grid-template-columns: 1fr; }
+    .expertise-section { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+
+  /* ═══════════════════ SCROLLBAR ═══════════════════ */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--navy); }
+  ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 2px; }
+
+</style>
+</head>
+<body>
+
+<!-- ═══════ NAV ═══════ -->
+<nav>
+  <div class="nav-logo">Prawit <span>Prakosre</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#innovation">Innovation</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#vision">Vision</a></li>
+  </ul>
+  <a href="mailto:prawit@trcrehab.org" class="nav-cta">Connect</a>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section id="hero">
+  <div class="hero-inner">
+    <!-- Left -->
+    <div>
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <span>Thai Red Cross Rehabilitation Center · Bangkok</span>
+      </div>
+      <h1 class="hero-name">Prawit Prakosre</h1>
+      <p class="hero-name-th">ประวิตร พระโคศรี, M.Sc. PT</p>
+      <p class="hero-title">Clinical Rehabilitation &amp; Medical Technology Specialist</p>
+      <p class="hero-mission">
+        Bridging <em>evidence-based neuroscience</em> with cutting-edge robotic rehabilitation technology — transforming complex neurological cases into measurable human recovery, one patient at a time.
+      </p>
+      <div class="hero-ctas">
+        <a href="#research" class="btn-primary">View Research</a>
+        <a href="#innovation" class="btn-secondary">Innovation Projects</a>
+      </div>
+    </div>
+
+    <!-- Right - Identities -->
+    <div class="hero-identities">
+      <div class="identity-card fade-up fade-up-delay-1">
+        <div class="identity-number">01</div>
+        <div class="identity-title">Clinical Physiotherapist</div>
+        <div class="identity-desc">10+ years at SUT Hospital, BDMS Group, and Thai Red Cross — specializing in complex neurological and cardiopulmonary rehabilitation</div>
+      </div>
+      <div class="identity-card fade-up fade-up-delay-2">
+        <div class="identity-number">02</div>
+        <div class="identity-title">Neurological Rehabilitation Specialist</div>
+        <div class="identity-desc">EksoNR-certified operator &amp; HIWIN RAGT specialist — achieving ASIA A→B reclassification in complex SCI cases through robotic-assisted gait training</div>
+      </div>
+      <div class="identity-card fade-up fade-up-delay-3">
+        <div class="identity-number">03</div>
+        <div class="identity-title">Clinical Educator</div>
+        <div class="identity-desc">Part-time lecturer at Nakhon Ratchasima College — developing clinical decision tools, intern supervision, and evidence translation frameworks</div>
+      </div>
+      <div class="identity-card fade-up">
+        <div class="identity-number">04</div>
+        <div class="identity-title">Rehabilitation Technology Innovator</div>
+        <div class="identity-desc">Creator of the Breathe Belt (TED Fund–funded breathing device) &amp; RG-RST clinical decision tool — translating clinical gaps into engineered solutions</div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">10+</span>
+        <span class="hero-stat-label">Years Clinical Experience</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">3</span>
+        <span class="hero-stat-label">Robotic Systems</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">2</span>
+        <span class="hero-stat-label">Active Research Projects</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">100k</span>
+        <span class="hero-stat-label">THB Innovation Grant</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">M.Sc.</span>
+        <span class="hero-stat-label">Physiotherapy (KKU)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ ABOUT ═══════ -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">About</div>
+    <h2 class="section-title">Clinical Depth<br>Meets Research Rigor</h2>
+
+    <div class="about-grid">
+      <div class="about-narrative fade-up">
+        <p>I am a licensed physiotherapist (License No. ก.9573) at the <strong>งานกายภาพบำบัด ศูนย์เวชศาสตร์ฟื้นฟู สภากาชาดไทย</strong> — the Thai Red Cross Rehabilitation Center in Bangkok — where I specialize in neurological, cardiopulmonary, and geriatric rehabilitation.</p>
+
+        <p>My clinical journey began in Isan, and has taken me through Suranaree University of Technology Hospital, the BDMS Group, and now the Thai Red Cross — each environment sharpening a different dimension of my practice. My <strong>M.Sc. in Physiotherapy (Research Program)</strong> from Khon Kaen University gave me the methodological foundation to ask better questions and design more rigorous studies.</p>
+
+        <p>What drives me is the space between what the textbook says and what the patient in front of you actually needs. <span class="highlight">I specialize in that gap.</span> Whether it's the first time a ASIA A spinal cord injury patient takes overground steps in a robotic exoskeleton, or a cardiac surgery patient walking the length of the ward for the first time post-operatively — these moments are not accidents. They are the result of evidence, technology, and clinical intuition working in concert.</p>
+
+        <p>Beyond the clinic, I develop <strong>clinical decision-support tools</strong>, supervise physiotherapy interns, and serve as a part-time lecturer at Nakhon Ratchasima College — because the next generation of clinicians deserves better teaching tools than what existed when I trained.</p>
+
+        <div class="expertise-tags">
+          <span class="tag">Robotic Gait Training</span>
+          <span class="tag">Spinal Cord Injury</span>
+          <span class="tag">Stroke Rehab</span>
+          <span class="tag">TBI Rehabilitation</span>
+          <span class="tag">Cardiac Rehab</span>
+          <span class="tag">Geriatric PT</span>
+          <span class="tag">EksoNR</span>
+          <span class="tag">HIWIN RAGT</span>
+          <span class="tag">R-GAIT</span>
+          <span class="tag">Exercise Science</span>
+          <span class="tag">Medical Devices</span>
+          <span class="tag">KOL Education</span>
+        </div>
+      </div>
+
+      <div class="about-right fade-up">
+        <div class="credential-card">
+          <div class="cred-icon">🎓</div>
+          <div class="cred-info">
+            <h4>M.Sc. Physiotherapy (Research)</h4>
+            <p>Khon Kaen University · Research Program track</p>
+          </div>
+        </div>
+        <div class="credential-card">
+          <div class="cred-icon">🤖</div>
+          <div class="cred-info">
+            <h4>EksoNR Certified Operator</h4>
+            <p>Ekso Bionics — formal certification in robotic exoskeleton gait training</p>
+          </div>
+        </div>
+        <div class="credential-card">
+          <div class="cred-icon">⚙️</div>
+          <div class="cred-info">
+            <h4>HIWIN RAGT Certified</h4>
+            <p>Certified robotic gait training specialist · Primary clinical platform</p>
+          </div>
+        </div>
+        <div class="credential-card">
+          <div class="cred-icon">🏥</div>
+          <div class="cred-info">
+            <h4>Licensed Physiotherapist</h4>
+            <p>Thailand PT License No. ก.9573 · Thai Red Cross Rehabilitation Center</p>
+          </div>
+        </div>
+        <div class="credential-card">
+          <div class="cred-icon">💡</div>
+          <div class="cred-info">
+            <h4>TED Fund Innovation Grantee</h4>
+            <p>Youth Startup Fund 100,000 THB · Breathe Belt breathing device · HACC 2022</p>
+          </div>
+        </div>
+        <div class="credential-card">
+          <div class="cred-icon">📚</div>
+          <div class="cred-info">
+            <h4>Part-Time Lecturer</h4>
+            <p>Nakhon Ratchasima College · Clinical physiotherapy education</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ RESEARCH ═══════ -->
+<section id="research">
+  <div class="section-inner">
+    <div class="section-label">Research</div>
+    <h2 class="section-title">Active Research<br>&amp; Clinical Studies</h2>
+    <p class="section-subtitle">Evidence-generating work that directly informs clinical decision-making in cardiac, neurological, and geriatric rehabilitation.</p>
+
+    <div class="research-grid">
+
+      <!-- Featured Study -->
+      <div class="research-card featured fade-up">
+        <div>
+          <span class="research-tag">Featured · Cardiac Rehab</span>
+          <h3>Gait Speed Correlation in Post-Cardiac Surgery Patients: 6MWT vs. 5MWT</h3>
+          <p>Investigating the relationship between the Six-Minute Walk Test and Five-Meter Walk Test in patients recovering from cardiac surgery — establishing a clinically validated correlation framework for faster, bedside-applicable gait assessment.</p>
+          <div class="research-meta">
+            <div class="research-meta-item">
+              <span class="meta-label">Design</span>
+              <span class="meta-val">Correlational</span>
+            </div>
+            <div class="research-meta-item">
+              <span class="meta-label">Correlation (r)</span>
+              <span class="meta-val">0.807 (Pearson)</span>
+            </div>
+            <div class="research-meta-item">
+              <span class="meta-label">Status</span>
+              <span class="meta-val">Manuscript Ready</span>
+            </div>
+            <div class="research-meta-item">
+              <span class="meta-label">Target</span>
+              <span class="meta-val">SRC 2026 (Abstract #0007)</span>
+            </div>
+          </div>
+        </div>
+        <div class="stat-visual">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;">Key Correlation (Pearson r)</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:600;color:var(--white);line-height:1;margin-bottom:16px;">0.807</div>
+          <div class="stat-row">
+            <span class="stat-row-label">6MWT vs 5MWT</span>
+            <div class="stat-bar-wrap"><div class="stat-bar" style="width:80.7%"></div></div>
+            <span class="stat-val">r=0.807</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-row-label">Clinical Significance</span>
+            <div class="stat-bar-wrap"><div class="stat-bar" style="width:90%"></div></div>
+            <span class="stat-val">High</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-row-label">Study Completion</span>
+            <div class="stat-bar-wrap"><div class="stat-bar" style="width:95%"></div></div>
+            <span class="stat-val">95%</span>
+          </div>
+          <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(0,180,166,0.1);font-size:12px;color:var(--text-dim);">
+            A strong positive correlation enables clinicians to substitute the resource-intensive 6MWT with the quick 5MWT at bedside — improving clinical workflow without sacrificing prognostic accuracy.
+          </div>
+        </div>
+      </div>
+
+      <!-- Study 2 -->
+      <div class="research-card fade-up fade-up-delay-1">
+        <span class="research-tag">Geriatric · Exercise Science</span>
+        <h3>Resistance Exercise Outcomes in Older Women: HUR Machine Protocol</h3>
+        <p>Evaluating the effects of pneumatic resistance training (HUR machines) on functional capacity, strength, and quality-of-life outcomes in older female participants.</p>
+        <div class="research-meta" style="margin-top:20px;">
+          <div class="research-meta-item">
+            <span class="meta-label">Design</span>
+            <span class="meta-val">Quasi-experimental</span>
+          </div>
+          <div class="research-meta-item">
+            <span class="meta-label">Population</span>
+            <span class="meta-val">Older Women</span>
+          </div>
+          <div class="research-meta-item">
+            <span class="meta-label">Status</span>
+            <span class="meta-val">Full Analysis Done</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Study 3 -->
+      <div class="research-card fade-up fade-up-delay-2">
+        <span class="research-tag">Case Report · SCI · Neuroplasticity</span>
+        <h3>Neurological Reclassification via Robotic Gait Training: ASIA A → ASIA B</h3>
+        <p>Longitudinal case documentation of a spinal cord injury patient achieving ASIA A-to-B reclassification following systematic HIWIN RAGT and EksoNR exoskeleton sessions. A rare, clinically significant outcome with international dissemination potential.</p>
+        <div class="research-meta" style="margin-top:20px;">
+          <div class="research-meta-item">
+            <span class="meta-label">Design</span>
+            <span class="meta-val">Case Report</span>
+          </div>
+          <div class="research-meta-item">
+            <span class="meta-label">Timeline</span>
+            <span class="meta-val">Sept 2024 – Present</span>
+          </div>
+          <div class="research-meta-item">
+            <span class="meta-label">Next Step</span>
+            <span class="meta-val">Conference Abstract</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Study 4 -->
+      <div class="research-card fade-up">
+        <span class="research-tag">Longitudinal · Stroke · Home Rehab</span>
+        <h3>Long-Term Outcomes in Left Hemiparesis: A 193-Session Home Visit Case</h3>
+        <p>Detailed clinical documentation across 193 physiotherapy sessions with a chronic stroke patient in a home-based rehabilitation setting — analyzing functional trajectories, plateau patterns, and environmental adaptation.</p>
+        <div class="research-meta" style="margin-top:20px;">
+          <div class="research-meta-item">
+            <span class="meta-label">Design</span>
+            <span class="meta-val">Longitudinal Case</span>
+          </div>
+          <div class="research-meta-item">
+            <span class="meta-label">Sessions</span>
+            <span class="meta-val">193 documented</span>
+          </div>
+          <div class="research-meta-item">
+            <span class="meta-label">Potential</span>
+            <span class="meta-val">Publication-Ready</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ INNOVATION ═══════ -->
+<section id="innovation">
+  <div class="section-inner">
+    <div class="section-label">Innovation</div>
+    <h2 class="section-title">Clinical Gaps<br>Become Solutions</h2>
+    <p class="section-subtitle">From breathing devices to digital clinical tools — building what rehabilitation needs next.</p>
+
+    <div class="innovation-grid">
+      <div class="innovation-card fade-up">
+        <span class="inno-status status-deployed">Deployed · 2022</span>
+        <h3>Breathe Belt</h3>
+        <p>A wearable breathing exercise device designed for patients who cannot effectively use traditional incentive spirometers. Developed in collaboration with SUT School of Engineering, funded by TED Fund (100,000 THB Youth Startup Fund), and presented at HACC 2022.</p>
+        <div class="inno-tags">
+          <span class="inno-tag">Breathing Exercise</span>
+          <span class="inno-tag">Wearable Device</span>
+          <span class="inno-tag">TED Fund</span>
+          <span class="inno-tag">HACC 2022</span>
+          <span class="inno-tag">SUT Engineering</span>
+        </div>
+      </div>
+
+      <div class="innovation-card fade-up fade-up-delay-1">
+        <span class="inno-status status-active">Active · 2024</span>
+        <h3>RG-RST (Robot Gait Readiness Scoring Tool)</h3>
+        <p>An interactive HTML-based clinical decision-support tool for assessing patient readiness for robotic-assisted gait training. Integrates body-device compatibility parameters for EksoNR, HIWIN, and R-GAIT — published open-access for PT clinicians.</p>
+        <div class="inno-tags">
+          <span class="inno-tag">Clinical Tool</span>
+          <span class="inno-tag">Interactive HTML</span>
+          <span class="inno-tag">Open Access</span>
+          <span class="inno-tag">RAGT Decision</span>
+        </div>
+      </div>
+
+      <div class="innovation-card fade-up fade-up-delay-2">
+        <span class="inno-status status-development">In Development</span>
+        <h3>Elastic Bandage Gait Technique</h3>
+        <p>An original clinical technique using elastic bandage application during robotic gait training to optimize lower limb alignment and contact forces — particularly for patients with bow-leg deformity or abnormal fibular head loading during exoskeleton use.</p>
+        <div class="inno-tags">
+          <span class="inno-tag">Original Technique</span>
+          <span class="inno-tag">Gait Training</span>
+          <span class="inno-tag">Clinical Innovation</span>
+          <span class="inno-tag">Biomechanics</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured: Ekso Journey -->
+    <div class="innovation-featured fade-up">
+      <div>
+        <span class="inno-status status-active">Clinical Milestone · 2024–2025</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--white);line-height:1.2;margin:12px 0;">EksoNR Overground Exoskeleton Program: SCI Reclassification Case</h3>
+        <p style="font-size:14px;color:var(--text-dim);line-height:1.7;margin-bottom:20px;">The most clinically significant milestone in the Thai Red Cross RAGT program: a patient initially classified as ASIA A (motor and sensory complete) achieved documented ASIA B reclassification following a systematic robotic gait training program beginning September 2024.</p>
+        <p style="font-size:14px;color:var(--text-dim);line-height:1.7;">This case involves navigating complex clinical challenges including bow-leg deformity, fibular head bursitis-like swelling after EksoNR trial, and optimizing between HIWIN treadmill training and EksoNR overground ambulation to maximize neuroplasticity while protecting joint integrity.</p>
+      </div>
+      <div class="inno-timeline">
+        <div class="inno-step">
+          <div class="inno-step-dot">1</div>
+          <div class="inno-step-content">
+            <h4>Sept 2024 — RAGT Program Initiated</h4>
+            <p>Patient enrolled with ASIA A classification. HIWIN treadmill-based RAGT commenced as primary platform.</p>
+          </div>
+        </div>
+        <div class="inno-step">
+          <div class="inno-step-dot">2</div>
+          <div class="inno-step-content">
+            <h4>Progressive HIWIN Sessions</h4>
+            <p>10+ HIWIN sessions completed. Gradual neuromuscular responses noted. Protocol refined across diagnostic groups (SCI C–T levels, TBI, Stroke).</p>
+          </div>
+        </div>
+        <div class="inno-step">
+          <div class="inno-step-dot">3</div>
+          <div class="inno-step-content">
+            <h4>EksoNR Overground Trial</h4>
+            <p>First EksoNR overground ambulation session attempted. Post-session: bow-leg pressure + fibular head swelling identified. Cold compress resolves. Patient returned to HIWIN protocol.</p>
+          </div>
+        </div>
+        <div class="inno-step">
+          <div class="inno-step-dot">4</div>
+          <div class="inno-step-content">
+            <h4>ASIA A → ASIA B Reclassification</h4>
+            <p>Documented neurological improvement confirmed. Sensory preservation established below the level of injury. Preparation for academic dissemination (conference → case report).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Robot Comparison Table -->
+    <div style="margin-top:40px;" class="fade-up">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--white);margin-bottom:20px;">Robotic Platform Expertise</h3>
+      <div class="robot-table">
+        <div class="robot-table-header">
+          <span>System</span>
+          <span>EksoNR</span>
+          <span>HIWIN RAGT</span>
+          <span>R-GAIT</span>
+        </div>
+        <div class="robot-table-row">
+          <span>Formal Certification</span>
+          <span class="checkmark">✓</span>
+          <span class="checkmark">✓</span>
+          <span class="dash">—</span>
+        </div>
+        <div class="robot-table-row">
+          <span>Clinical Experience</span>
+          <span class="checkmark">✓</span>
+          <span class="checkmark">✓</span>
+          <span class="checkmark">✓</span>
+        </div>
+        <div class="robot-table-row">
+          <span>Overground Ambulation</span>
+          <span class="checkmark">✓</span>
+          <span class="dash">—</span>
+          <span class="dash">—</span>
+        </div>
+        <div class="robot-table-row">
+          <span>Treadmill-based RAGT</span>
+          <span class="dash">—</span>
+          <span class="checkmark">✓</span>
+          <span class="checkmark">✓</span>
+        </div>
+        <div class="robot-table-row">
+          <span>Body Weight Support</span>
+          <span class="checkmark">✓</span>
+          <span class="checkmark">✓</span>
+          <span class="checkmark">✓</span>
+        </div>
+        <div class="robot-table-row">
+          <span>Primary SCI Platform</span>
+          <span class="checkmark">✓</span>
+          <span class="checkmark">✓</span>
+          <span class="dash">—</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ PUBLICATIONS ═══════ -->
+<section id="publications">
+  <div class="section-inner">
+    <div class="section-label">Publications</div>
+    <h2 class="section-title">Published Research</h2>
+    <p class="section-subtitle">Peer-reviewed contributions to rehabilitation science and exercise physiology.</p>
+
+    <div class="pub-filters">
+      <button class="pub-filter active" onclick="filterPubs('all')">All</button>
+      <button class="pub-filter" onclick="filterPubs('exercise')">Exercise Science</button>
+      <button class="pub-filter" onclick="filterPubs('neuro')">Neurological Rehab</button>
+      <button class="pub-filter" onclick="filterPubs('cardiac')">Cardiac</button>
+    </div>
+
+    <div class="pub-list">
+      <div class="pub-item fade-up" data-cat="exercise">
+        <div class="pub-year">2021</div>
+        <div class="pub-content">
+          <h4>Exercise Pressor Response and Its Clinical Implications in Cardiac Rehabilitation Populations</h4>
+          <div class="pub-journal">Peer-Reviewed Journal · First Author</div>
+          <div class="pub-authors">Prawit Prakosre et al.</div>
+          <p class="pub-summary">This publication examines the exercise pressor reflex in cardiac rehabilitation contexts, providing physiological insight into blood pressure and heart rate responses during therapeutic exercise — with direct implications for safe exercise prescription in post-cardiac patients.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;">
+          <a href="#" class="pub-doi">DOI →</a>
+          <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--text-dim);letter-spacing:0.1em;text-transform:uppercase;">First Author</span>
+        </div>
+      </div>
+
+      <div class="pub-item fade-up" data-cat="cardiac">
+        <div class="pub-year">2026</div>
+        <div class="pub-content">
+          <h4>Correlation Between 6MWT and 5MWT Gait Speed in Post-Cardiac Surgery Patients</h4>
+          <div class="pub-journal">Manuscript In Preparation · Conference Abstract Submitted</div>
+          <div class="pub-authors">Prawit Prakosre et al. · SRC 2026 Abstract ID: 0007</div>
+          <p class="pub-summary">A correlational study establishing Pearson r = 0.807 between the Six-Minute Walk Test and Five-Meter Walk Test in cardiac surgery patients — enabling more efficient bedside functional assessment in resource-limited clinical settings.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;">
+          <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;padding:6px 12px;border:1px solid rgba(196,165,90,0.25);border-radius:2px;">In Review</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ CONFERENCES ═══════ -->
+<section id="conferences">
+  <div class="section-inner">
+    <div class="section-label">Conferences</div>
+    <h2 class="section-title">Presentations &amp;<br>Academic Dissemination</h2>
+
+    <div class="conf-grid">
+      <div class="conf-card fade-up">
+        <div class="conf-type type-intl">◆ International</div>
+        <h4>HACC 2022 — Healthcare &amp; AI Conference</h4>
+        <div class="conf-meta">2022 · Oral Presentation</div>
+        <div class="conf-badge badge-oral">Oral</div>
+        <p style="font-size:12px;color:var(--text-dim);margin-top:12px;line-height:1.5;">Presented the Breathe Belt breathing device — a wearable rehabilitation innovation funded by TED Fund. Demonstrated clinical application, engineering design process, and patient outcomes.</p>
+      </div>
+
+      <div class="conf-card fade-up fade-up-delay-1">
+        <div class="conf-type type-natl">◆ National</div>
+        <h4>SRC 2026 — Siriraj Research Conference</h4>
+        <div class="conf-meta">2026 · Abstract #0007</div>
+        <div class="conf-badge badge-poster">Abstract Submitted</div>
+        <p style="font-size:12px;color:var(--text-dim);margin-top:12px;line-height:1.5;">Submitted abstract on gait speed correlation study (6MWT vs. 5MWT) in post-cardiac surgery patients. Pearson r = 0.807. Pending presentation.</p>
+      </div>
+
+      <div class="conf-card fade-up fade-up-delay-2">
+        <div class="conf-type type-intl">◆ Target · 2026</div>
+        <h4>International SCI / Neurorehabilitation Conference</h4>
+        <div class="conf-meta">2026 · Planned Submission</div>
+        <div class="conf-badge" style="background:rgba(100,120,180,0.12);color:#8a9adb;border:1px solid rgba(100,120,180,0.25);">In Preparation</div>
+        <p style="font-size:12px;color:var(--text-dim);margin-top:12px;line-height:1.5;">Targeting international conference submission for the ASIA A→B reclassification case via RAGT — a clinically significant case with strong international dissemination potential.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ CLINICAL EDUCATION ═══════ -->
+<section id="education-section">
+  <div class="section-inner">
+    <div class="section-label">Clinical Education</div>
+    <h2 class="section-title">Training the Next<br>Generation of Clinicians</h2>
+
+    <div class="edu-grid">
+      <div class="edu-items fade-up">
+        <div class="edu-item">
+          <div class="edu-year-marker">Now</div>
+          <div class="edu-content">
+            <h4>Part-Time Lecturer — Nakhon Ratchasima College</h4>
+            <p>Delivering physiotherapy education at undergraduate level. Emphasis on neurological rehabilitation, clinical reasoning, and technology integration.</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-year-marker">Now</div>
+          <div class="edu-content">
+            <h4>PT Intern Clinical Supervisor — Thai Red Cross</h4>
+            <p>Supervising physiotherapy interns in complex neurological rehabilitation settings. Mentoring in robotic gait training protocols and clinical decision-making.</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-year-marker">2024</div>
+          <div class="edu-content">
+            <h4>RAGT Clinical Decision Flowchart</h4>
+            <p>Developed an original clinical decision flowchart for robotic-assisted gait training selection — now used as a structured teaching tool for PT interns at the Thai Red Cross.</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-year-marker">2024</div>
+          <div class="edu-content">
+            <h4>@rehabarchitect.th — TikTok Knowledge Translation</h4>
+            <p>30-day consecutive posting challenge with raw clinical footage &amp; evidence-based rehabilitation content. Educational strategy: "show don't tell" — real patients, real outcomes, real science.</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-year-marker">2024</div>
+          <div class="edu-content">
+            <h4>RAGT Readiness Checklist (Public)</h4>
+            <p>Published an open-access RAGT readiness checklist and body-device compatibility infographic comparing EksoNR, HIWIN, and R-GAIT systems — disseminated publicly to PT community.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="teaching-tools fade-up">
+        <h3>Teaching Tools &amp; Digital Resources</h3>
+        <div class="tool-row">
+          <div class="tool-icon">🤖</div>
+          <div class="tool-info">
+            <h5>RG-RST Interactive Tool</h5>
+            <p>HTML clinical decision support for RAGT patient selection — open access</p>
+          </div>
+        </div>
+        <div class="tool-row">
+          <div class="tool-icon">📊</div>
+          <div class="tool-info">
+            <h5>EksoNR Patient Analytics Dashboard</h5>
+            <p>Visual analytics across SCI, TBI, and Stroke diagnostic groups and sessions</p>
+          </div>
+        </div>
+        <div class="tool-row">
+          <div class="tool-icon">📋</div>
+          <div class="tool-info">
+            <h5>RAGT Clinical Flowchart</h5>
+            <p>Decision support for PT interns — robot selection and safety screening</p>
+          </div>
+        </div>
+        <div class="tool-row">
+          <div class="tool-icon">🎬</div>
+          <div class="tool-info">
+            <h5>Clinical Video Library (@rehabarchitect.th)</h5>
+            <p>Raw clinical footage series — highest-performing content for PT knowledge translation</p>
+          </div>
+        </div>
+        <div class="tool-row">
+          <div class="tool-icon">📈</div>
+          <div class="tool-info">
+            <h5>Body-Device Compatibility Infographic</h5>
+            <p>EksoNR / HIWIN / R-GAIT comparison across patient parameters</p>
+          </div>
+        </div>
+        <div class="tool-row">
+          <div class="tool-icon">🌐</div>
+          <div class="tool-info">
+            <h5>GitHub Pages CV Website</h5>
+            <p>"Clinical Rehabilitation &amp; Medical Technology Specialist" — international-standard portfolio</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ IMPACT ═══════ -->
+<section id="impact">
+  <div class="section-inner">
+    <div class="section-label">Research Impact</div>
+    <h2 class="section-title">Measuring What<br>Matters</h2>
+
+    <div class="kpi-grid">
+      <div class="kpi-card fade-up">
+        <span class="kpi-number">10+</span>
+        <span class="kpi-label">Years of Clinical Practice</span>
+        <span class="kpi-sub">SUT · BDMS · Thai Red Cross</span>
+      </div>
+      <div class="kpi-card fade-up fade-up-delay-1">
+        <span class="kpi-number">3</span>
+        <span class="kpi-label">Robotic Systems Mastered</span>
+        <span class="kpi-sub">EksoNR · HIWIN · R-GAIT</span>
+      </div>
+      <div class="kpi-card fade-up fade-up-delay-2">
+        <span class="kpi-number">2</span>
+        <span class="kpi-label">Active Research Manuscripts</span>
+        <span class="kpi-sub">Cardiac & Geriatric cohorts</span>
+      </div>
+      <div class="kpi-card fade-up fade-up-delay-3">
+        <span class="kpi-number">1</span>
+        <span class="kpi-label">Innovation Grant Won</span>
+        <span class="kpi-sub">TED Fund 100,000 THB</span>
+      </div>
+      <div class="kpi-card fade-up">
+        <span class="kpi-number">193</span>
+        <span class="kpi-label">Longest Documented Case</span>
+        <span class="kpi-sub">Home visit longitudinal series</span>
+      </div>
+      <div class="kpi-card fade-up fade-up-delay-1">
+        <span class="kpi-number">2</span>
+        <span class="kpi-label">Original Clinical Tools</span>
+        <span class="kpi-sub">RG-RST · RAGT Flowchart</span>
+      </div>
+      <div class="kpi-card fade-up fade-up-delay-2">
+        <span class="kpi-number">30</span>
+        <span class="kpi-label">Day Content Challenge</span>
+        <span class="kpi-sub">@rehabarchitect.th TikTok</span>
+      </div>
+      <div class="kpi-card fade-up fade-up-delay-3">
+        <span class="kpi-number">A→B</span>
+        <span class="kpi-label">ASIA Reclassification</span>
+        <span class="kpi-sub">SCI · RAGT · Landmark case</span>
+      </div>
+    </div>
+
+    <!-- Expertise Bars -->
+    <div class="expertise-section">
+      <div class="expertise-bars fade-up">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--white);margin-bottom:28px;">Clinical Expertise Domains</h3>
+        <div class="exp-bar-item">
+          <div class="exp-bar-header"><span class="exp-bar-name">Neurological Rehabilitation</span><span class="exp-bar-pct">95%</span></div>
+          <div class="exp-bar-track"><div class="exp-bar-fill" style="width:95%"></div></div>
+        </div>
+        <div class="exp-bar-item">
+          <div class="exp-bar-header"><span class="exp-bar-name">Robotic-Assisted Gait Training</span><span class="exp-bar-pct">92%</span></div>
+          <div class="exp-bar-track"><div class="exp-bar-fill" style="width:92%"></div></div>
+        </div>
+        <div class="exp-bar-item">
+          <div class="exp-bar-header"><span class="exp-bar-name">Cardiac Rehabilitation</span><span class="exp-bar-pct">82%</span></div>
+          <div class="exp-bar-track"><div class="exp-bar-fill" style="width:82%"></div></div>
+        </div>
+        <div class="exp-bar-item">
+          <div class="exp-bar-header"><span class="exp-bar-name">Geriatric Physiotherapy</span><span class="exp-bar-pct">80%</span></div>
+          <div class="exp-bar-track"><div class="exp-bar-fill" style="width:80%"></div></div>
+        </div>
+        <div class="exp-bar-item">
+          <div class="exp-bar-header"><span class="exp-bar-name">Clinical Research &amp; Statistics</span><span class="exp-bar-pct">78%</span></div>
+          <div class="exp-bar-track"><div class="exp-bar-fill" style="width:78%"></div></div>
+        </div>
+        <div class="exp-bar-item">
+          <div class="exp-bar-header"><span class="exp-bar-name">Medical Device Development</span><span class="exp-bar-pct">70%</span></div>
+          <div class="exp-bar-track"><div class="exp-bar-fill" style="width:70%"></div></div>
+        </div>
+        <div class="exp-bar-item">
+          <div class="exp-bar-header"><span class="exp-bar-name">Clinical Education &amp; Teaching</span><span class="exp-bar-pct">85%</span></div>
+          <div class="exp-bar-track"><div class="exp-bar-fill" style="width:85%"></div></div>
+        </div>
+      </div>
+
+      <div class="fade-up" style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:2px;padding:40px;backdrop-filter:blur(10px);">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--white);margin-bottom:24px;">Career Trajectory</h3>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="padding:16px;background:rgba(0,180,166,0.05);border:1px solid rgba(0,180,166,0.12);border-radius:2px;">
+            <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-bottom:6px;">Foundation</div>
+            <div style="font-size:13px;color:var(--white);font-weight:400;">SUT Hospital → BDMS Group</div>
+            <div style="font-size:12px;color:var(--text-dim);margin-top:3px;">Multi-setting clinical breadth · Cardio &amp; Ortho specialization</div>
+          </div>
+          <div style="padding:16px;background:rgba(0,180,166,0.07);border:1px solid rgba(0,180,166,0.18);border-radius:2px;">
+            <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-bottom:6px;">Current</div>
+            <div style="font-size:13px;color:var(--white);font-weight:400;">Thai Red Cross Rehabilitation Center</div>
+            <div style="font-size:12px;color:var(--text-dim);margin-top:3px;">Neuro specialist · Robotic rehab · Research &amp; innovation</div>
+          </div>
+          <div style="padding:16px;background:rgba(0,180,166,0.04);border:1px solid rgba(0,180,166,0.1);border-radius:2px;opacity:0.8;">
+            <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Target</div>
+            <div style="font-size:13px;color:var(--white);font-weight:400;">MedTech · Clinical Specialist · MSL · PhD</div>
+            <div style="font-size:12px;color:var(--text-dim);margin-top:3px;">Mahidol University PhD (preferred) · Industry innovation roles</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ FUTURE VISION ═══════ -->
+<section id="vision">
+  <div class="section-inner">
+    <div class="section-label">Future Vision</div>
+    <h2 class="section-title">Where This Work<br>Is Headed</h2>
+    <p class="section-subtitle">A roadmap from clinical excellence to rehabilitation innovation leadership.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;">
+      <div class="vision-timeline fade-up">
+        <div class="vision-item">
+          <div class="vision-period">2025 — Immediate</div>
+          <h3>Academic Dissemination</h3>
+          <p>Submit the ASIA A→B reclassification case as a conference abstract to an international neurorehabilitation venue. Complete gait speed correlation study publication. Build systematic research output momentum.</p>
+          <div class="vision-tags">
+            <span class="vision-tag">Conference Abstract</span>
+            <span class="vision-tag">Case Report</span>
+            <span class="vision-tag">First Author</span>
+          </div>
+        </div>
+
+        <div class="vision-item">
+          <div class="vision-period">2025–2026 — Near Term</div>
+          <h3>Personal Brand &amp; Thought Leadership</h3>
+          <p>Establish @rehabarchitect.th as Thailand's leading evidence-based rehabilitation education channel. Develop KOL relationships with medical device companies (Ekso Bionics, HIWIN). Build industry advisory potential.</p>
+          <div class="vision-tags">
+            <span class="vision-tag">KOL</span>
+            <span class="vision-tag">TikTok Education</span>
+            <span class="vision-tag">Industry Liaison</span>
+          </div>
+        </div>
+
+        <div class="vision-item">
+          <div class="vision-period">2026–2028 — Mid Term</div>
+          <h3>PhD &amp; Industry Transition</h3>
+          <p>Pursue PhD at Mahidol University (preferred route, employer sponsorship model). Explore MedTech, Medical Science Liaison, Clinical Specialist, or Product Specialist roles that leverage robotic rehabilitation expertise at international level.</p>
+          <div class="vision-tags">
+            <span class="vision-tag">Mahidol University</span>
+            <span class="vision-tag">PhD Research</span>
+            <span class="vision-tag">MedTech Careers</span>
+            <span class="vision-tag">MSL</span>
+          </div>
+        </div>
+
+        <div class="vision-item">
+          <div class="vision-period">2028+ — Long Term</div>
+          <h3>Rehabilitation Innovation Leadership</h3>
+          <p>Lead a clinical research program at the intersection of neuroplasticity, robotics, and wearable rehabilitation technology. Develop commercializable rehabilitation devices with international impact. Contribute to global RAGT standards and training frameworks.</p>
+          <div class="vision-tags">
+            <span class="vision-tag">Research Leadership</span>
+            <span class="vision-tag">Innovation Lab</span>
+            <span class="vision-tag">Global Collaboration</span>
+            <span class="vision-tag">Commercialization</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-up" style="display:flex;flex-direction:column;gap:20px;">
+        <div style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:2px;padding:32px;backdrop-filter:blur(10px);">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--white);margin-bottom:16px;">Collaboration Opportunities</h3>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;gap:12px;align-items:center;padding:12px;background:rgba(0,180,166,0.05);border-radius:2px;">
+              <span style="font-size:20px;">🔬</span>
+              <div>
+                <div style="font-size:13px;color:var(--white);font-weight:400;">Research Collaboration</div>
+                <div style="font-size:12px;color:var(--text-dim);">RAGT, SCI, Neuroplasticity, Cardiac Rehab</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:center;padding:12px;background:rgba(0,180,166,0.05);border-radius:2px;">
+              <span style="font-size:20px;">🤝</span>
+              <div>
+                <div style="font-size:13px;color:var(--white);font-weight:400;">Industry Partnerships</div>
+                <div style="font-size:12px;color:var(--text-dim);">Robotic device companies, MedTech, Digital Health</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:center;padding:12px;background:rgba(0,180,166,0.05);border-radius:2px;">
+              <span style="font-size:20px;">🎤</span>
+              <div>
+                <div style="font-size:13px;color:var(--white);font-weight:400;">Speaking &amp; KOL Engagements</div>
+                <div style="font-size:12px;color:var(--text-dim);">RAGT protocols, clinical decision tools, innovation</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:center;padding:12px;background:rgba(0,180,166,0.05);border-radius:2px;">
+              <span style="font-size:20px;">📚</span>
+              <div>
+                <div style="font-size:13px;color:var(--white);font-weight:400;">Clinical Education</div>
+                <div style="font-size:12px;color:var(--text-dim);">Workshops, curriculum development, internship programs</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:center;padding:12px;background:rgba(0,180,166,0.05);border-radius:2px;">
+              <span style="font-size:20px;">💡</span>
+              <div>
+                <div style="font-size:13px;color:var(--white);font-weight:400;">Innovation Grants &amp; R&amp;D</div>
+                <div style="font-size:12px;color:var(--text-dim);">Device development, breathing tech, clinical tools</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:linear-gradient(135deg,rgba(0,180,166,0.12),rgba(26,58,110,0.4));border:1px solid rgba(0,180,166,0.25);border-radius:2px;padding:32px;">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;">The Core Belief</div>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--white);font-weight:300;font-style:italic;line-height:1.6;">"Rehabilitation is not just about restoring function — it is about restoring possibility. Every session is a hypothesis. Every patient response is data."</p>
+          <div style="margin-top:16px;font-family:'DM Mono',monospace;font-size:10px;color:var(--text-dim);letter-spacing:0.1em;">— Prawit Prakosre, M.Sc. PT</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ CONTACT ═══════ -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-inner">
+      <div class="contact-glow">🤝</div>
+      <h2>Let's Build Something<br>That Matters</h2>
+      <p>Whether you're interested in research collaboration, clinical education, industry partnerships, speaking invitations, or exploring the frontier of rehabilitation technology together — reach out.</p>
+
+      <div class="contact-links">
+        <a href="https://www.tiktok.com/@rehabarchitect.th" class="contact-link">
+          <div class="contact-link-icon">📱</div>
+          <div class="contact-link-text">
+            <span class="contact-link-label">TikTok</span>
+            <span class="contact-link-value">@rehabarchitect.th</span>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/prawit-prakosre" class="contact-link">
+          <div class="contact-link-icon">💼</div>
+          <div class="contact-link-text">
+            <span class="contact-link-label">LinkedIn</span>
+            <span class="contact-link-value">Prawit Prakosre</span>
+          </div>
+        </a>
+        <a href="mailto:prawit@trcrehab.org" class="contact-link">
+          <div class="contact-link-icon">✉️</div>
+          <div class="contact-link-text">
+            <span class="contact-link-label">Email</span>
+            <span class="contact-link-value">Professional Inquiry</span>
+          </div>
+        </a>
+      </div>
+
+      <a href="#research" class="btn-primary">Explore My Research →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  <div class="footer-left">Prawit Prakosre, M.Sc. PT · License ก.9573</div>
+  <div class="footer-right">Thai Red Cross Rehabilitation Center · Bangkok · © 2025</div>
+</footer>
+
+<script>
+  // ── Scroll animations ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ── Nav scroll effect ──
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 60) {
+      nav.style.background = 'rgba(10,22,40,0.97)';
+    } else {
+      nav.style.background = 'rgba(10,22,40,0.85)';
+    }
+  });
+
+  // ── Pub filter ──
+  function filterPubs(cat) {
+    document.querySelectorAll('.pub-filter').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+
+    document.querySelectorAll('.pub-item').forEach(item => {
+      if (cat === 'all' || item.dataset.cat === cat) {
+        item.style.display = 'grid';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  // ── Animate numbers on scroll ──
+  const numObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const bars = e.target.querySelectorAll('.stat-bar');
+        bars.forEach(bar => {
+          const w = bar.style.width;
+          bar.style.width = '0%';
+          setTimeout(() => { bar.style.width = w; }, 200);
+        });
+        numObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.stat-visual, .exp-bar-track').forEach(el => numObserver.observe(el));
+
+  // ── Smooth hover parallax on hero ──
+  document.querySelector('#hero').addEventListener('mousemove', (e) => {
+    const cards = document.querySelectorAll('.identity-card');
+    const x = (e.clientX / window.innerWidth - 0.5) * 6;
+    const y = (e.clientY / window.innerHeight - 0.5) * 6;
+    cards.forEach((card, i) => {
+      const factor = (i + 1) * 0.3;
+      card.style.transform = `translateX(${x * factor}px) translateY(${y * factor}px)`;
+    });
+  });
+
+  document.querySelector('#hero').addEventListener('mouseleave', () => {
+    document.querySelectorAll('.identity-card').forEach(card => {
+      card.style.transform = '';
+    });
+  });
+</script>
+
+</body>
+</html>
